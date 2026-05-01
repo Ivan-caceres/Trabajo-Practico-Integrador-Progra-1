@@ -1,6 +1,8 @@
 from funciones import (calcular_riesgo, calcular_estado_sv, calcular_carga)
 from inputs import(uso_cpu, uso_ram, espacio_libre_disco, cantidad_procesos_activos, estado_firewall)
 
+mensaje = "Bienvenido al Sistema de Diagnostico y Configuracion del Servidor.\n" \
+"***"*30
 
 porcentaje_total_carga =  (uso_cpu + uso_ram) / 2
 
