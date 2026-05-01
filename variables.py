@@ -1,4 +1,4 @@
-from funciones import (calcular_riesgo, calcular_estado_sv)
+from funciones import (calcular_riesgo, calcular_estado_sv, calcular_carga)
 
 uso_cpu = 50 #esto conecta con los input
 uso_ram = 60 #esto conecta con los input
@@ -15,3 +15,4 @@ recursos_disponibles = f"Disco: {espacio_libre_gb}GB \nRam libre: {ram_disponibl
 
 estado_general_servidor = calcular_estado_sv(nivel_estimado_riesgo)
 
+estado_carga = calcular_carga(uso_cpu, uso_ram)

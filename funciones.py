@@ -1,4 +1,3 @@
-from variables import (porcentaje_total_carga, nivel_estimado_riesgo, recursos_disponibles, )
 
 def calcular_riesgo (estado_fw : str, porcentaje_carga_tt : int):
     """
@@ -21,12 +20,12 @@ def calcular_estado_sv (nivel_riesgo : int):
     nivel_riesgo = Es el nivel estimado de riesgo
     """
 
-    if nivel_riesgo < 5:
-        estado_servidor = 100
-    elif nivel_riesgo >= 5:
-        estado_servidor = 70
-    elif nivel_riesgo > 10:
-        estado_servidor = 50
+    if nivel_riesgo <= 3:
+        estado_servidor = "Optimo"
+    elif 3 < nivel_riesgo <= 6:
+        estado_servidor = "Alerta"
+    elif nivel_riesgo > 6:
+        estado_servidor = "Critico"
 
     return estado_servidor
 
@@ -36,3 +35,11 @@ def calcular_carga(cpu : int, ram : int):
     cpu = Uso de la cpu
     ram = Uso de la ram
     """
+    if cpu >= 85 and ram >= 80:
+        return "Sobrecarga critica"
+    elif cpu > 70 and ram > 70:
+        return "Carga elevada"
+    elif (70 >= cpu >= 40) and (70 >= ram >= 40):
+        return "Carga normal"
+    elif cpu < 40 and ram < 40:
+        return "Carga minima"
