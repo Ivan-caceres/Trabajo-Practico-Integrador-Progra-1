@@ -1,17 +1,15 @@
-"""from inputs import (uso_cpu, uso_ram, espacio_libre_disco, cantidad_procesos_activos, estado_firewall)
 
-def ingresar_datos():
-    
-
-
-
-def app():
+"""def app():
     print("***"*22)
     print("Bienvenido al Sistema de Diagnostico y Configuracion del Servidor")
     print("***"*22)
-    ingresar_datos()
+    cpu_uso = ingresar_uso_cpu()
+    ram_uso = ingresar_uso_ram()
+    espacio_libre_gb = ingreso_espacio_libre_disco()
+    usuarios_online = ingresos_datos
 """
-def calcular_riesgo (estado_fw : str, porcentaje_carga_tt : int):
+
+def calcular_riesgo (estado_fw : str, porcentaje_carga_tt : int) -> int:
     """
     Calcula el nivel de riesgo del servidor
     Args:
@@ -29,7 +27,7 @@ def calcular_riesgo (estado_fw : str, porcentaje_carga_tt : int):
     
     return nivel_estimado_riesgo
 
-def calcular_estado_sv (nivel_riesgo : int):
+def calcular_estado_sv (nivel_riesgo : int) -> str:
     """
     Calcula el estado general del servidor
     Args:
@@ -47,7 +45,7 @@ def calcular_estado_sv (nivel_riesgo : int):
 
     return estado_servidor
 
-def calcular_carga(cpu : int, ram : int):
+def calcular_carga(cpu : int, ram : int) -> str:
     """
     Calcular el estado de carga del servidor
     cpu = Uso de la cpu
@@ -62,4 +60,5 @@ def calcular_carga(cpu : int, ram : int):
     else:
         return "Carga minima"
     
-    
+def estado_disco(disco_libre : int, procesos : int) -> str:
+    pass
