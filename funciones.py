@@ -35,11 +35,13 @@ def calcular_carga(cpu : int, ram : int):
     cpu = Uso de la cpu
     ram = Uso de la ram
     """
-    if cpu >= 85 and ram >= 80:
+    if cpu >= 85 or ram >= 80:
         return "Sobrecarga critica"
-    elif cpu > 70 and ram > 70:
+    elif cpu > 70 or ram > 70:
         return "Carga elevada"
-    elif (70 >= cpu >= 40) and (70 >= ram >= 40):
+    elif cpu >= 40 or ram >= 40:
         return "Carga normal"
-    elif cpu < 40 and ram < 40:
+    else:
         return "Carga minima"
+    
+    
