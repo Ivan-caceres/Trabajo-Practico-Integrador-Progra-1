@@ -1,9 +1,24 @@
+"""from inputs import (uso_cpu, uso_ram, espacio_libre_disco, cantidad_procesos_activos, estado_firewall)
 
+def ingresar_datos():
+    
+
+
+
+def app():
+    print("***"*22)
+    print("Bienvenido al Sistema de Diagnostico y Configuracion del Servidor")
+    print("***"*22)
+    ingresar_datos()
+"""
 def calcular_riesgo (estado_fw : str, porcentaje_carga_tt : int):
     """
     Calcula el nivel de riesgo del servidor
-    estado_fw = Estado del firewall 
-    porcentaje_carga_tt = El porcentaje total de carga 
+    Args:
+        estado_fw (str) = Estado del firewall 
+        porcentaje_carga_tt (int) = El porcentaje total de carga
+    Return:
+        int: Valor numerico representando el nivel de riesgo del servidor
     """
     if estado_fw == "Inactivo":
         nivel_estimado_riesgo += 5
@@ -17,7 +32,10 @@ def calcular_riesgo (estado_fw : str, porcentaje_carga_tt : int):
 def calcular_estado_sv (nivel_riesgo : int):
     """
     Calcula el estado general del servidor
-    nivel_riesgo = Es el nivel estimado de riesgo
+    Args:
+        nivel_riesgo = Es el nivel estimado de riesgo
+    return:
+
     """
 
     if nivel_riesgo <= 3:
