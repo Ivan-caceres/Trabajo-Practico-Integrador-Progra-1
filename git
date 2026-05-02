@@ -1,2 +1,76 @@
-print("hola")
-print("como estas'")
+"""Requerimientos obligatorios 
+Datos de entrada 
+ El sistema deberá solicitar: 
+   El ingreso de un mínimo de 10 datos de entrada. De los cuales: 
+ Numéricos (5 mínimo). Ejemplos: 
+   Uso de CPU (%) 
+   Uso de memoria RAM (%) 
+   Espacio libre en disco (GB) 
+   Cantidad de usuarios conectados 
+   Cantidad de procesos activos 
+   Categóricos (3 mínimo). Opciones cerradas. Ejemplos: 
+   Sistema operativo (Linux / Windows Server) 
+   Estado del firewall (Activo / Inactivo) 
+   Tipo de servidor (Web / Base de datos / Archivos) 
+ Cadenas (2 mínimo) Ejemplos: 
+   Nombre del servidor """
+
+nombre_servidor = input("Nombre del servidor: ")
+ubicacion = input("Ubicación del servidor: ")
+
+cpu = int(input("Uso de CPU (%): "))
+while cpu < 0 or cpu > 100:
+    cpu = int(input("Error. CPU debe estar entre 0 y 100: "))
+
+ram = int(input("Uso de RAM (%): "))
+while ram < 0 or ram > 100:
+    ram = int(input("Error. RAM debe estar entre 0 y 100: "))
+
+disco = int(input("Espacio libre en disco (GB): "))
+while disco < 0:
+    disco = int(input("Error. Ingresar valor válido: "))
+
+usuarios = int(input("Cantidad de usuarios conectados: "))
+while usuarios < 0:
+    usuarios = int(input("Error. Ingresar valor válido: "))
+
+procesos = int(input("Cantidad de procesos activos: "))
+while procesos < 0:
+    procesos = int(input("Error. Ingresar valor válido: "))
+
+
+so = input("Sistema operativo (Linux/Windows Server): ")
+while so != "Linux" and so != "Windows Server":
+    so = input("Error. Ingresar Linux o Windows Server: ")
+
+firewall = input("Estado del firewall (Activo/Inactivo): ")
+while firewall != "Activo" and firewall != "Inactivo":
+    firewall = input("Error. Ingresar Activo o Inactivo: ")
+
+tipo = input("Tipo de servidor (Web/Base de datos/Archivos): ")
+while tipo != "Web" and tipo != "Base de datos" and tipo != "Archivos":
+    tipo = input("Error. Ingresar Web/Base de datos/Archivos: ")
+
+
+print("\n--- DATOS DEL SERVIDOR ---")
+print("Nombre:", nombre_servidor)
+print("Ubicación:", ubicacion)
+print("CPU:", cpu, "%")
+print("RAM:", ram, "%")
+print("Disco libre:", disco, "GB")
+print("Usuarios conectados:", usuarios)
+print("Procesos activos:", procesos)
+print("Sistema operativo:", so)
+print("Firewall:", firewall)
+print("Tipo de servidor:", tipo)
+
+
+def ingreso_cpu() -> str:
+    
+    cpu = int(input("Uso de CPU (%): "))
+    while cpu < 0 or cpu > 100:
+        cpu = int(input("Error. CPU debe estar entre 0 y 100: "))
+
+    return cpu
+
+cpu_ingresado = ingreso_cpu()
