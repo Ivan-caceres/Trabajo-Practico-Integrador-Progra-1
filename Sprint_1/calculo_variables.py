@@ -1,12 +1,12 @@
-def calculo_variables(uso_cpu, uso_ram, espacio_libre, usuarios_conec, cant_proc, tipo_serv):
+def calculo_variables(uso_cpu, uso_ram, espacio_libre, usuarios_conectados, cantidad_procesos, tipo_serv):
 
     carga_total = (uso_cpu + uso_ram) / 2
 
     recursos_disponibles = 100 - carga_total
 
-    uso_por_proc = ((uso_cpu + uso_ram / cant_proc, 2)) if cant_proc > 0 else 0
+    uso_por_proc = ((uso_cpu + uso_ram / cantidad_procesos, 2)) if cantidad_procesos > 0 else 0
 
-    ratio_user = (usuarios_conec / recursos_disponibles, 2) if recursos_disponibles > 0 else float('inf')
+    ratio_user = (usuarios_conectados / recursos_disponibles, 2) if recursos_disponibles > 0 else float('inf')
 
     if carga_total > 85 or espacio_libre < 5:
         nivel_riesgo = "Critico"
