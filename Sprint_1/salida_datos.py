@@ -4,29 +4,17 @@ from motor_reglas import *
 
 def mostrar_diagnostico():
 
-    uso_cpu = ingreso_uso_cpu()
-    uso_ram = ingreso_uso_ram()
-    espacio_libre = ingreso_espacio_libre()
-    usuarios_conectados = ingreso_usuarios_conectados()
-    cant_procesos = ingreso_cantidad_procesos()
-    so = ingreso_so()
-    firewall = ingreso_firewall()
-    tipo_serv = ingreso_tipo_server()
-    nombre_servidor = ingreso_nombre_server()
-    nombre_administrador = ingreso_nombre_administrador()
+    uso_cpu, uso_ram, espacio_libre, usuarios_conectados, cant_procesos, so, firewall, tipo_serv, nombre_servidor, nombre_administrador = obtener_datos()
 
-    carga_total, recursos_disponibles, uso_por_proc, ratio_user, nivel_riesgo, estado_general = calculo_variables(
-        uso_cpu, uso_ram, espacio_libre, usuarios_conectados, cant_procesos, tipo_serv
-    )
+    carga_total, recursos_disponibles, uso_por_proc, ratio_user, nivel_riesgo, estado_general = calculo_variables
+    (uso_cpu, uso_ram, espacio_libre, usuarios_conectados, cant_procesos, tipo_serv)
 
     (alerta_critica, alerta_mantenimiento, alerta_seguridad, alerta_normal,
      alerta_web, alerta_proceso, alerta_recursos, alerta_disco,
      mensaje_critica, mensaje_mantenimiento, mensaje_seguridad, mensaje_normal,
-     mensaje_web, mensaje_proceso, mensaje_recursos, mensaje_disco) = evaluar_reglas(
-        uso_cpu, uso_ram, espacio_libre, usuarios_conectados, cant_procesos,
-        so, firewall, tipo_serv,
-        carga_total, recursos_disponibles, uso_por_proc, ratio_user, nivel_riesgo
-    )
+     mensaje_web, mensaje_proceso, mensaje_recursos, mensaje_disco) = evaluar_reglas
+    (uso_cpu, uso_ram, espacio_libre, usuarios_conectados, cant_procesos,
+    so, firewall, tipo_serv, carga_total, recursos_disponibles, uso_por_proc, ratio_user, nivel_riesgo)
 
     print("=" * 55)
     print(f"  💻 Diagnóstico del Servidor: {nombre_servidor}")

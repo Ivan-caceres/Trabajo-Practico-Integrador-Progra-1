@@ -67,7 +67,7 @@ def evaluar_reglas(uso_cpu, uso_ram, espacio_libre, usuarios_conectados, cant_pr
         mensaje_proceso = ""
 
     #Registra los recursos disponibles, lo devuelve en un porcentaje junto a la cantidad de usuarios conectados.
-    if recursos_disponibles < 20 and ratio_usuarios > 5 and nivel_riesgo in ("Alto", "Crítico"):
+    if recursos_disponibles < 20 and ratio_usuarios > 5 and nivel_riesgo in ("Alto", "Critico"):
         alerta_recursos = True
         mensaje_recursos = f"Solo {recursos_disponibles}% de recursos libres para {usuarios_conectados} usuarios."
     else:
