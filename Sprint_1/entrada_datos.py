@@ -1,6 +1,9 @@
 def ingreso_uso_cpu() -> int:
     """
-    Ingresa el uso actual del CPU y lo valida.
+    Ingresa el uso actual del CPU si está entre 0 y 100. De lo contrario reingresar valor.
+
+    Returns:
+        int
     """
 
     uso_cpu = int(input("Ingrese el uso actual de su CPU (%): "))
