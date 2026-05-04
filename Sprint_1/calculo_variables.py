@@ -1,12 +1,14 @@
+from entrada_datos import *
+
 def calculo_variables(uso_cpu, uso_ram, espacio_libre, usuarios_conectados, cantidad_procesos, tipo_serv):
 
-    carga_total = (uso_cpu + uso_ram) / 2
+    carga_total = int((uso_cpu + uso_ram) / 2)
 
     recursos_disponibles = 100 - carga_total
 
-    uso_por_proc = ((uso_cpu + uso_ram / cantidad_procesos, 2)) if cantidad_procesos > 0 else 0
+    uso_por_proc = (uso_cpu + uso_ram / cantidad_procesos) if cantidad_procesos > 0 else 0
 
-    ratio_user = (usuarios_conectados / recursos_disponibles, 2) if recursos_disponibles > 0 else float('inf')
+    ratio_user = (usuarios_conectados / recursos_disponibles) if recursos_disponibles > 0 else float('inf')
 
     if carga_total > 85 or espacio_libre < 5:
         nivel_riesgo = "Critico"
@@ -22,8 +24,8 @@ def calculo_variables(uso_cpu, uso_ram, espacio_libre, usuarios_conectados, cant
     elif nivel_riesgo == "Alto":
         estado_general = "Estado del sistema en grave estres"
     elif nivel_riesgo == "Medio":
-        estado_general == "Estado del sistema en leve estres"
+        estado_general = "Estado del sistema en leve estres"
     else:
-        estado_general == "Estado del sistema normal"
+        estado_general = "Estado del sistema normal"
     
     return carga_total, recursos_disponibles, uso_por_proc, ratio_user, nivel_riesgo, estado_general
