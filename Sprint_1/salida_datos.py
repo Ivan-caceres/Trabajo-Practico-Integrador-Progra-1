@@ -13,8 +13,8 @@ def mostrar_diagnostico():
      alerta_web, alerta_proceso, alerta_recursos, alerta_disco,
      mensaje_critica, mensaje_mantenimiento, mensaje_seguridad, _,
      mensaje_web, mensaje_proceso, mensaje_recursos, mensaje_disco) = evaluar_reglas(uso_cpu, uso_ram, 
-                            espacio_libre, usuarios_conectados, cant_procesos,so, firewall, tipo_serv, 
-                            carga_total, recursos_disponibles, uso_por_proc, ratio_user, nivel_riesgo)
+    espacio_libre, usuarios_conectados, cant_procesos,so, firewall, tipo_serv, carga_total, 
+    recursos_disponibles, uso_por_proc, ratio_user, nivel_riesgo)
 
     print("=" * 55)
     
@@ -51,7 +51,7 @@ def mostrar_diagnostico():
         print(f"  - {mensaje_disco}")
 
     if not (alerta_critica or alerta_mantenimiento or alerta_seguridad or
-                alerta_web or alerta_proceso or alerta_recursos or alerta_disco):
+        alerta_web or alerta_proceso or alerta_recursos or alerta_disco):
         print("  - Sin problemas detectados.")
 
     if alerta_normal:

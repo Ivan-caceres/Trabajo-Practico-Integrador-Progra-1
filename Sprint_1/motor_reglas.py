@@ -34,7 +34,7 @@ def evaluar_reglas(uso_cpu, uso_ram, espacio_libre, usuarios_conectados, cant_pr
         alerta_mantenimiento = False
         mensaje_mantenimiento = ""
 
-    if not firewall == "Activo" or firewall == "activo":
+    if firewall == "Inactivo":
         alerta_seguridad = True
         mensaje_seguridad = f"Firewall en estado '{firewall}', servidor expuesto."
     else:
@@ -48,7 +48,7 @@ def evaluar_reglas(uso_cpu, uso_ram, espacio_libre, usuarios_conectados, cant_pr
         alerta_normal = False
         mensaje_normal = ""
 
-    if tipo_serv == "Web" or tipo_serv == "web" and usuarios_conectados > 100 and uso_cpu > 75:
+    if tipo_serv == "Web" and usuarios_conectados > 100 and uso_cpu > 75:
         alerta_web = True
         mensaje_web = f"{usuarios_conectados} usuarios conectados con CPU al {uso_cpu}% en servidor Web."
     else:
