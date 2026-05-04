@@ -34,7 +34,7 @@ def evaluar_reglas(uso_cpu, uso_ram, espacio_libre, usuarios_conectados, cant_pr
         alerta_mantenimiento = False
         mensaje_mantenimiento = ""
 
-    if not firewall == "Activo":
+    if not firewall == "Activo" or firewall == "activo":
         alerta_seguridad = True
         mensaje_seguridad = f"Firewall en estado '{firewall}', servidor expuesto."
     else:
@@ -48,7 +48,7 @@ def evaluar_reglas(uso_cpu, uso_ram, espacio_libre, usuarios_conectados, cant_pr
         alerta_normal = False
         mensaje_normal = ""
 
-    if tipo_serv == "Web" and usuarios_conectados > 100 and uso_cpu > 75:
+    if tipo_serv == "Web" or tipo_serv == "web" and usuarios_conectados > 100 and uso_cpu > 75:
         alerta_web = True
         mensaje_web = f"{usuarios_conectados} usuarios conectados con CPU al {uso_cpu}% en servidor Web."
     else:
@@ -69,11 +69,12 @@ def evaluar_reglas(uso_cpu, uso_ram, espacio_libre, usuarios_conectados, cant_pr
         alerta_recursos = False
         mensaje_recursos = ""
 
-    if so == "Windows Server" and espacio_libre < 20:
+    if so == "Windows Server" or so == "windows server" and espacio_libre < 20:
         alerta_disco = True
         mensaje_disco = f"Windows Server con solo {espacio_libre} GB libres. Mínimo recomendado: 20 GB."
     else:
         alerta_disco = False
         mensaje_disco = ""
 
-    return (alerta_critica, alerta_mantenimiento, alerta_seguridad, alerta_normal, alerta_web, alerta_proceso, alerta_recursos, alerta_disco, mensaje_critica, mensaje_mantenimiento, mensaje_seguridad, mensaje_normal, mensaje_web, mensaje_proceso, mensaje_recursos, mensaje_disco)
+    return (alerta_critica, alerta_mantenimiento, alerta_seguridad, alerta_normal, alerta_web, alerta_proceso, alerta_recursos, alerta_disco, 
+            mensaje_critica, mensaje_mantenimiento, mensaje_seguridad, mensaje_normal, mensaje_web, mensaje_proceso, mensaje_recursos, mensaje_disco)
