@@ -6,7 +6,7 @@ def mostrar_diagnostico():
 
     uso_cpu, uso_ram, espacio_libre, usuarios_conectados, cant_procesos, so, firewall, tipo_serv, nombre_servidor, nombre_administrador = obtener_datos()
 
-    carga_total, recursos_disponibles, uso_por_proc, ratio_user, nivel_riesgo, estado_general = calculo_variables(uso_cpu, uso_ram, espacio_libre, 
+    carga_total, recursos_disponibles, uso_por_proc, ratio_usuario, nivel_riesgo, estado_general = calculo_variables(uso_cpu, uso_ram, espacio_libre, 
     usuarios_conectados, cant_procesos, tipo_serv)
 
     (alerta_critica, alerta_mantenimiento, alerta_seguridad, alerta_normal,
@@ -14,18 +14,17 @@ def mostrar_diagnostico():
      mensaje_critica, mensaje_mantenimiento, mensaje_seguridad, _,
      mensaje_web, mensaje_proceso, mensaje_recursos, mensaje_disco) = evaluar_reglas(uso_cpu, uso_ram, 
     espacio_libre, usuarios_conectados, cant_procesos,so, firewall, tipo_serv, carga_total, 
-    recursos_disponibles, uso_por_proc, ratio_user, nivel_riesgo)
+    recursos_disponibles, uso_por_proc, ratio_usuario, nivel_riesgo)
 
-    print("=" * 55)
-    
-    print(f"  💻 Diagnóstico del Servidor: {nombre_servidor}")
+    print("=======================================================")
+
+    print(f"  🖥️ Diagnóstico del Servidor: {nombre_servidor}")
 
     print(f"  👤 Administrador: {nombre_administrador}")
 
-    print("=" * 55)
+    print("=======================================================")
 
     print(f"\n  Estado general: {estado_general} ({nivel_riesgo})")
-
 
     print("\n  Problemas detectados:")
 
@@ -87,6 +86,6 @@ def mostrar_diagnostico():
     if alerta_normal:
         print("  ✓ Continuar monitoreo de rutina, no se requiere acción.")
 
-    print("\n" + "=" * 55)
+    print("\n" + "=======================================================")
 
 mostrar_diagnostico()
