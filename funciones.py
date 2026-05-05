@@ -3,7 +3,8 @@ from variables import calculo_variables
 
 def obtener_datos():
     """
-    
+    Solicita al usuario los datos para realizar el diagnostico mediantes las siguientes funciones:
+    ingreso_uso_cpu(), ingreso_uso_ram(), ingreso_espacio_libre(), ingreso_usuarios_conectados(), ingreso_cantidad_procesos(), ingreso_so(), ingreso_firewall(), ingreso_tipo_server(), ingreso_nombre_server(), ingreso_nombre_administrador()
     """
     uso_cpu = ingreso_uso_cpu()
     uso_ram = ingreso_uso_ram()
@@ -20,6 +21,17 @@ def obtener_datos():
 
 def evaluar_reglas(uso_cpu, uso_ram, espacio_libre, usuarios_conectados, cant_procesos, so, firewall, 
                     tipo_serv, carga_total, recursos_disponibles, presion_por_proceso, ratio_usuarios, nivel_riesgo):
+    """
+    Recibe los datos ingresados del usuario y evalua las siguientes reglas:
+    -Alerta Critica (Cuando el uso de cpu y el uso de ram superan el 85% y 80% respectivamente)
+    -Alerta de Mantenimiento (Cuando el espacio libre es inferior a 10GB y la cantidad de procesos activos supera los 250)
+    -Alerta de firewall (Cuando el mismo se encuentra desactivado)
+    -Uso normal del servidor (Cuando el uso de cpu y ram se encuentran dentro del rango 40%-70%)
+    -Alerta de escalar recurso (Si el servidor es de tipo WEB, hay mas de 100 usuarios conectados y el uso de cpu supera el 75%)
+    -Promedio de uso por proceso (Calcula el promedio de uso por proceso si la cantidad de recursos por proceso es mayor a 3 y el uso de cpu o ram es mayor a 70)
+    -Alerta de recursos (Cuando los recursos disponibles son menores a 20 y el ratio de recursos por usuario es mayor a 5 y el riesgo previo es alto o critico)
+    -Alerta de espacio minimo para Windows (Cuando el servidor es Windows y en el espacio libre en disco es menor a 20GB.)
+    """
 
 
     if uso_cpu > 85 and uso_ram > 80 and carga_total > 82:
@@ -53,7 +65,7 @@ def evaluar_reglas(uso_cpu, uso_ram, espacio_libre, usuarios_conectados, cant_pr
 
     if tipo_serv == "Web" and usuarios_conectados > 100 and uso_cpu > 75:
         alerta_web = True
-        mensaje_web = f"{usuarios_conectados} usuarios conectados con CPU al {uso_cpu}% en servidor Web."
+        mensaje_web = f"{usuarios_conectados} usuarios conectados con CPU al {uso_cpu}% en servidor Web, es necesario reescalar los recursos."
     else:
         alerta_web = False
         mensaje_web = ""
