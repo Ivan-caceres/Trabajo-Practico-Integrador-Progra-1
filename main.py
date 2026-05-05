@@ -6,8 +6,8 @@ def mostrar_diagnostico():
 
     uso_cpu, uso_ram, espacio_libre, usuarios_conectados, cant_procesos, so, firewall, tipo_serv, nombre_servidor, nombre_administrador = obtener_datos()
 
-    carga_total, recursos_disponibles, uso_por_proc, ratio_user, nivel_riesgo, estado_general = calculo_variables(uso_cpu, uso_ram, espacio_libre, 
-    usuarios_conectados, cant_procesos, tipo_serv)
+    carga_total, recursos_disponibles, uso_por_proc, ratio_user, nivel_riesgo, estado_general = calculo_variables(uso_cpu, uso_ram, espacio_libre,
+    usuarios_conectados, cant_procesos)
 
     (alerta_critica, alerta_mantenimiento, alerta_seguridad, alerta_normal,
     alerta_web, alerta_proceso, alerta_recursos, alerta_disco,
