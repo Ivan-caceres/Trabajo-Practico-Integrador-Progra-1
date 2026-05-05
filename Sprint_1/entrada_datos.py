@@ -4,7 +4,7 @@ def ingreso_uso_cpu() -> int:
 
     Valida que el valor ingresado esté entre 0 y 100, en caso contrario reingresa el porcentaje con esas condiciones.
 
-    Returns: 
+    Returns:
         int: Porcentaje de uso del CPU, entre 0 y 100.
     """
 
@@ -12,7 +12,7 @@ def ingreso_uso_cpu() -> int:
 
     while uso_cpu < 0 or uso_cpu > 100:
         uso_cpu = int(input("Ingrese un valor entre 0 y 100: "))
-    
+
     return uso_cpu
 
 
@@ -22,7 +22,7 @@ def ingreso_uso_ram() -> int:
 
     Valida que el valor ingresado esté entre 0 y 100, en caso contrario reingresar el porcentaje con esas condiciones.
 
-    Returns: 
+    Returns:
         int: Porcentaje de uso de la RAM, entre 0 y 100.
     """
 
@@ -30,7 +30,7 @@ def ingreso_uso_ram() -> int:
 
     while uso_ram < 0 or uso_ram > 100:
         uso_ram = int(input("Ingrese un valor entre 0 y 100: "))
-    
+
     return uso_ram
 
 
@@ -46,7 +46,11 @@ def ingreso_espacio_libre() -> int:
     espacio_libre = int(input("Ingrese el espacio libre en disco (GB): "))
 
     while espacio_libre < 0:
-        espacio_libre = int(input("No se admite la ejecucion del ingreso si no tiene espacio libre en el sitema. Vuelva a intentarlo: "))
+        espacio_libre = int(
+            input(
+                "No se admite la ejecucion del ingreso si no tiene espacio libre en el sitema. Vuelva a intentarlo: "
+            )
+        )
 
     return espacio_libre
 
@@ -64,7 +68,7 @@ def ingreso_usuarios_conectados() -> int:
 
     while usuarios_conectados <= 0:
         usuarios_conectados = int(input("Ingrese una cantidad de usuarios valida: "))
-    
+
     return usuarios_conectados
 
 
@@ -81,7 +85,7 @@ def ingreso_cantidad_procesos() -> int:
 
     while cantidad_procesos <= 0:
         cantidad_procesos = int(input("Ingrese una cantidad de procesos valida: "))
-    
+
     return cantidad_procesos
 
 
@@ -95,10 +99,15 @@ def ingreso_so() -> str:
         str: Sistema operativo del servidor. Opciones disponibles: "Linux", "Windows Server", "linux", "windows server".
     """
     so = input("Ingrese su sistema operativo(Linux / Windows Server): ")
-    
-    while so != "Linux" and so != "Windows Server" and so != "linux" and so != "windows server":
+
+    while (
+        so != "Linux"
+        and so != "Windows Server"
+        and so != "linux"
+        and so != "windows server"
+    ):
         so = input("Ingrese un sistema operativo valido(Linux / Windows Server): ")
-    
+
     return so
 
 
@@ -113,7 +122,12 @@ def ingreso_firewall() -> str:
     """
     firewall = input("Ingrese el estado del Firewall(Activo / Inactivo): ")
 
-    while firewall != "Activo" and firewall != "Inactivo" and firewall != "activo" and firewall != "inactivo":
+    while (
+        firewall != "Activo"
+        and firewall != "Inactivo"
+        and firewall != "activo"
+        and firewall != "inactivo"
+    ):
         firewall = input("Ingrese un estado valido(Activo / Inactivo): ")
 
     return firewall
@@ -129,9 +143,18 @@ def ingreso_tipo_server() -> str:
         str: Tipo de servidor a diagnosticar. Opciones disponibles: "Web", "Base de datos", "Archivos", "web", "base de datos", "archivos".
     """
     tipo_serv = input("Ingrese el tipo de servidor(Web / Base de datos / Archivos): ")
-    
-    while tipo_serv != "Web" and tipo_serv != "Base de datos" and tipo_serv != "Archivos" and tipo_serv != "web" and tipo_serv != "base de datos" and tipo_serv != "archivos":
-        tipo_serv = input("Ingrese un tipo de servidor valido(Web / Base de datos / Archivos): ")
+
+    while (
+        tipo_serv != "Web"
+        and tipo_serv != "Base de datos"
+        and tipo_serv != "Archivos"
+        and tipo_serv != "web"
+        and tipo_serv != "base de datos"
+        and tipo_serv != "archivos"
+    ):
+        tipo_serv = input(
+            "Ingrese un tipo de servidor valido(Web / Base de datos / Archivos): "
+        )
 
     return tipo_serv
 

@@ -1,9 +1,12 @@
 from entrada_datos import *
 
-def calculo_variables(uso_cpu, uso_ram, espacio_libre, usuarios_conectados, cantidad_procesos, _):
+
+def calculo_variables(
+    uso_cpu, uso_ram, espacio_libre, usuarios_conectados, cantidad_procesos, _
+):
     """
     Motor de diagnóstico de riesgo
-    
+
     En base a las variables obtenidas del módulo "entrada_datos"(uso de cpu, ram, espacio libre en disco y cantidad de usuarios/procesos),
     se calcula promiedos que cuantifican la carga del sistema, los recursos disponibles en el mismo, el uso promedio de estos recursos
     en base a cada proceso y la relación entre usuarios conectados y los recursos disponibles.
@@ -16,9 +19,9 @@ def calculo_variables(uso_cpu, uso_ram, espacio_libre, usuarios_conectados, cant
         espacio_libre (int): Espacio libre en disco expresado en GB, mayor que 0.
 
         usuarios_conectados (int): Cantidad de usuarios conectados, mayor que 0.
-        
+
         cantidad_procesos (int): Cantidad de procesos activos actualmente en el sistema, mayor que 0.
-        
+
     Returns:
         tupla:
             - carga_total (int): Promedio de uso entre CPU y RAM. Carga total del sistema.
@@ -43,7 +46,6 @@ def calculo_variables(uso_cpu, uso_ram, espacio_libre, usuarios_conectados, cant
     uso_por_proceso = (uso_cpu + uso_ram) / cantidad_procesos
 
     ratio_usuario = usuarios_conectados / recursos_disponibles
-
 
     if cantidad_procesos > 0:
         uso_por_proceso = (uso_cpu + uso_ram) / cantidad_procesos
@@ -70,5 +72,12 @@ def calculo_variables(uso_cpu, uso_ram, espacio_libre, usuarios_conectados, cant
         estado_general = "Estado del sistema en leve estres"
     else:
         estado_general = "Estado del sistema normal"
-    
-    return carga_total, recursos_disponibles, uso_por_proceso, ratio_usuario, nivel_riesgo, estado_general
+
+    return (
+        carga_total,
+        recursos_disponibles,
+        uso_por_proceso,
+        ratio_usuario,
+        nivel_riesgo,
+        estado_general,
+    )
