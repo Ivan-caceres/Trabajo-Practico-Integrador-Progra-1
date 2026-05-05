@@ -37,6 +37,6 @@ Reglas implementadas:
 
 -Alerta de escalar recurso (Si el servidor es de tipo WEB, hay mas de 100 usuarios conectados y el uso de cpu supera el 75%) 
 
--Promedio de uso por proceso () [REVISAR EN CODIGO]
+-Promedio de uso por proceso () 
 
 -Recursos
