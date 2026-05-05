@@ -58,7 +58,7 @@ def evaluar_reglas(uso_cpu, uso_ram, espacio_libre, usuarios_conectados, cant_pr
         alerta_web = False
         mensaje_web = ""
 
-    #Realiza un promedio del uso por proceso que carga el sistema y lo devuelve.
+    #Realiza un promedio del uso por proceso que carga el sistema y determina el mensaje de proceso.
     if presion_por_proceso > 3 and (uso_cpu > 70 or uso_ram > 70):
         alerta_proceso = True
         mensaje_proceso = f"Cada proceso consume en promedio {presion_por_proceso} unidades de carga."
