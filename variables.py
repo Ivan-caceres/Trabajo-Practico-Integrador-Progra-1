@@ -1,13 +1,40 @@
-from funciones import (calcular_riesgo, calcular_estado_sv, calcular_carga)
-from inputs import(uso_cpu, uso_ram, espacio_libre_disco, cantidad_procesos_activos, estado_firewall)
+from inputs import *
 
-porcentaje_total_carga =  (uso_cpu + uso_ram) / 2
+def calculo_variables(uso_cpu : int, uso_ram : int, espacio_libre : int, usuarios_conectados : int, cantidad_procesos : int):
+    """
+    Recibe los datos ingresados por el usuario y crea a partir de ellos las variables de carga_total, recursos_disponibles, uso_por_proc, ratio_usuario, nivel_riesgo, estado_general.
+    """
 
-nivel_estimado_riesgo = calcular_riesgo(estado_firewall, porcentaje_total_carga)
+    carga_total = (uso_cpu + uso_ram) / 2
 
-ram_disponible_porcentaje = 100 - uso_ram
-recursos_disponibles = f"Disco: {espacio_libre_disco}GB \nRam libre: {ram_disponible_porcentaje}%"
+    recursos_disponibles = 100 - carga_total
 
-estado_general_servidor = calcular_estado_sv(nivel_estimado_riesgo)
+    if cantidad_procesos > 0:
+        uso_por_proc = (uso_cpu + uso_ram) / cantidad_procesos
+    else:
+        uso_por_proc = 0
 
-estado_carga = calcular_carga(uso_cpu, uso_ram)
+    if recursos_disponibles > 0:
+        ratio_usuario = usuarios_conectados / recursos_disponibles
+    else:
+        ratio_usuario = float('inf')
+
+    if carga_total > 85 or espacio_libre < 5:
+        nivel_riesgo = "Critico"
+    elif carga_total > 65 or espacio_libre < 15:
+        nivel_riesgo = "Alto"
+    elif carga_total > 40:
+        nivel_riesgo = "Medio"
+    else:
+        nivel_riesgo = "Bajo"
+
+    if nivel_riesgo == "Critico":
+        estado_general = "Estado del sistema en peligro"
+    elif nivel_riesgo == "Alto":
+        estado_general = "Estado del sistema en grave estres"
+    elif nivel_riesgo == "Medio":
+        estado_general = "Estado del sistema en leve estres"
+    else:
+        estado_general = "Estado del sistema normal"
+    
+    return carga_total, recursos_disponibles, uso_por_proc, ratio_usuario, nivel_riesgo, estado_general
