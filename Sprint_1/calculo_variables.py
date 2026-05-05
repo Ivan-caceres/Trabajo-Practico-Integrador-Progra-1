@@ -11,7 +11,7 @@ def calculo_variables(
     se calcula promiedos que cuantifican la carga del sistema, los recursos disponibles en el mismo, el uso promedio de estos recursos
     en base a cada proceso y la relación entre usuarios conectados y los recursos disponibles.
 
-    Parametros:
+    Args:
         uso_cpu (int): Porcentaje de uso del CPU, entre 0 y 100.
 
         uso_ram (int): Porcentaje de uso de la memoria RAM, entre 0 y 100.
