@@ -57,10 +57,8 @@ Cuando el servidor es Windows y en el espacio libre en disco es menor a 20GB.
 *****************************************************************************
 Ejemplo de Salida:
 
-=======================================================
   💻 Diagnóstico del Servidor: Trabajo Integrador
   👤 Administrador: IvanCa24
-=======================================================
 
   Estado general: Estado del sistema en leve estres (Medio)
 
@@ -72,4 +70,3 @@ Ejemplo de Salida:
   ✓ Liberar almacenamiento o ampliar el volumen de disco.
   ✓ Continuar monitoreo de rutina, no se requiere acción.
 
-=======================================================
