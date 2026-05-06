@@ -170,7 +170,7 @@ def ingreso_nombre_server() -> str:
     """
     nombre_servidor = input("Ingrese el nombre del servidor: ")
 
-    while nombre_servidor.strip() == "":
+    while nombre_servidor == "":
         nombre_servidor = input("Ingrese el nombre del servidor: ")
 
     return nombre_servidor
@@ -187,6 +187,6 @@ def ingreso_nombre_administrador() -> str:
     """
     nombre_administrador = input("Ingrese su nombre de usuario: ")
 
-    while nombre_administrador.strip() == "":
+    while nombre_administrador == "":
         nombre_administrador = input("Ingrese su nombre de usuario: ")
     return nombre_administrador
