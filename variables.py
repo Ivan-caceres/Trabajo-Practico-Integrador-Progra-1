@@ -1,4 +1,4 @@
-from entrada_datos import *
+from inputs import *
 
 
 def calculo_variables(

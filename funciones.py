@@ -1,5 +1,5 @@
-from entrada_datos import *
-from calculo_variables import *
+from inputs import *
+from variables import *
 
 
 def obtener_datos():

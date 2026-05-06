@@ -1,6 +1,6 @@
-from entrada_datos import *
-from calculo_variables import *
-from motor_reglas import *
+from inputs import *
+from variables import *
+from funciones import *
 
 
 def mostrar_diagnostico():
@@ -62,13 +62,13 @@ def mostrar_diagnostico():
         nivel_riesgo,
     )
 
-    print("=======================================================")
+    print("=" * 55)
 
     print(f"  🖥️ Diagnóstico del Servidor: {nombre_servidor}")
 
     print(f"  👤 Administrador: {nombre_administrador}")
 
-    print("=======================================================")
+    print("=" * 55)
 
     print(f"\n  Estado general: {estado_general} ({nivel_riesgo})")
 
@@ -146,7 +146,6 @@ def mostrar_diagnostico():
     if alerta_normal:
         print("  ✓ Continuar monitoreo de rutina, no se requiere acción.")
 
-    print("\n" + "=======================================================")
-
+    print("\n" + "=" * 55)
 
 mostrar_diagnostico()
